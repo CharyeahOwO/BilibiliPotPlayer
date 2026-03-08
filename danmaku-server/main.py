@@ -352,7 +352,7 @@ def _danmakus_to_ass(
             lane = _find_scroll_lane(
                 scroll_lanes, dm_time, duration, text_width, num_lanes
             )
-            y = lane * lane_height + lane_height // 2
+            y = lane * lane_height
 
 
             clear_time = dm_time + duration * text_width / (ASS_WIDTH + text_width)
@@ -379,7 +379,7 @@ def _danmakus_to_ass(
             duration = duration_still
             end_time = dm_time + duration
             lane = _find_static_lane(top_lanes, dm_time, end_time, num_lanes)
-            y = lane * lane_height + lane_height // 2
+            y = lane * lane_height
 
             pos_tag = f"\\an8\\pos({ASS_WIDTH // 2},{y})"
             style_tag = (
@@ -400,7 +400,7 @@ def _danmakus_to_ass(
             end_time = dm_time + duration
             lane = _find_static_lane(bottom_lanes, dm_time, end_time, num_lanes)
 
-            y = ASS_HEIGHT - lane * lane_height - lane_height // 2
+            y = ASS_HEIGHT - lane * lane_height
 
             pos_tag = f"\\an2\\pos({ASS_WIDTH // 2},{y})"
             style_tag = (
@@ -456,7 +456,7 @@ YCbCr Matrix: TV.709
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Danmaku,{font},{int(font_size)},&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,1.5,0,2,0,0,0,1
+Style: Danmaku,{font},{int(font_size)},&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,1.5,0,8,0,0,0,1
 Style: Subtitle,{font},{int(font_size)},&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,20,1
 
 [Events]
